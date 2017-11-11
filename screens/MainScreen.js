@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { View, Platform, Image } from 'react-native';
+import { Divider } from 'react-native-elements';
 import Expo from 'expo';
 import KeysButtons from '../components/KeysButtons';
 import CapoButtons from '../components/CapoButtons';
+import CapoKey from '../components/CapoKey';
 import icon from '../assets/icons/pure-icon.png';
-import { STATUS_BAR_HEIGHT } from '../constants';
+import { STATUS_BAR_HEIGHT, SCREEN_WIDTH } from '../constants';
 
 const cacheImages = images => images.map(image => {
   if (typeof image === 'string') return Image.prefetch(image);
@@ -45,10 +47,23 @@ class MainScreen extends Component {
   }
 
   render() {
+    const { containerStyle, dividerStyle } = styles;
+
     return (
       <View style={{ flex: 1, backgroundColor: '#ddd' }}>
-        <KeysButtons />
-        <CapoButtons />
+        {/* ChordModal */}
+
+        <View style={containerStyle}>
+          <KeysButtons />
+          <Divider style={dividerStyle} />
+          <CapoButtons />
+          <Divider style={dividerStyle} />
+          <CapoKey />
+        </View>
+
+        {/* ViewChordsButton */}
+
+        {/* BottomBannerAd */}
       </View>
     );
   }
@@ -60,6 +75,15 @@ const styles = {
     marginLeft: 10,
     width: 40,
     height: 40
+  },
+  containerStyle: {
+    flex: 1,
+    justifyContent: 'space-around',
+    alignItems: 'center'
+  },
+  dividerStyle: {
+    width: SCREEN_WIDTH * 0.9,
+    backgroundColor: '#2196F3'
   }
 };
 
