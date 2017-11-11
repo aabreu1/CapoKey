@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { View, Platform, Image } from 'react-native';
 import Expo from 'expo';
-import KeysButtons from '../Components/KeysButtons';
+import KeysButtons from '../components/KeysButtons';
+import CapoButtons from '../components/CapoButtons';
 import icon from '../assets/icons/pure-icon.png';
 import { STATUS_BAR_HEIGHT } from '../constants';
 
@@ -47,6 +48,7 @@ class MainScreen extends Component {
     return (
       <View style={{ flex: 1, backgroundColor: '#ddd' }}>
         <KeysButtons />
+        <CapoButtons />
       </View>
     );
   }
