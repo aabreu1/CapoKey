@@ -5,6 +5,8 @@ import Expo from 'expo';
 import KeysButtons from '../components/KeysButtons';
 import CapoButtons from '../components/CapoButtons';
 import CapoKey from '../components/CapoKey';
+import ChordsModal from '../modals/ChordsModal';
+import ViewChordsButton from '../components/ViewChordsButton';
 import icon from '../assets/icons/pure-icon.png';
 import { STATUS_BAR_HEIGHT, SCREEN_WIDTH } from '../constants';
 
@@ -47,12 +49,11 @@ class MainScreen extends Component {
   }
 
   render() {
-    const { containerStyle, dividerStyle } = styles;
+    const { containerStyle, dividerStyle, buttonCotainerStyle } = styles;
 
     return (
       <View style={{ flex: 1, backgroundColor: '#ddd' }}>
-        {/* ChordModal */}
-
+        <ChordsModal />
         <View style={containerStyle}>
           <KeysButtons />
           <Divider style={dividerStyle} />
@@ -61,7 +62,7 @@ class MainScreen extends Component {
           <CapoKey />
         </View>
 
-        {/* ViewChordsButton */}
+        <ViewChordsButton style={buttonCotainerStyle} />
 
         {/* BottomBannerAd */}
       </View>
@@ -84,6 +85,12 @@ const styles = {
   dividerStyle: {
     width: SCREEN_WIDTH * 0.9,
     backgroundColor: '#2196F3'
+  },
+  buttonCotainerStyle:{
+    width: SCREEN_WIDTH,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingBottom: 10
   }
 };
 
